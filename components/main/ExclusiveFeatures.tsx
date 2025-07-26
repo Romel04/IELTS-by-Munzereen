@@ -8,15 +8,23 @@ export default function ExclusiveFeatures({ section }: { section: Section }) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-gray-800">{section.name}</h2>
+      <h2 className="text-[20px] font-[600] leading-[30px] text-gray-800">
+        {section.name}
+      </h2>
       <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm space-y-8">
         {section.values.map((feature, index) => (
-          <div key={feature.id} className="space-y-4 flex justify-between">
+          <div
+            key={feature.id}
+            className="space-y-4 flex flex-col md:flex-row justify-between md:gap-4"
+          >
             <div className="grid grid-cols-1 md:grid-cols-1 gap-x-6 gap-y-3">
+              <p className="text-[16px] font-[400] leading-[30px] text-gray-900">
+                {feature.title}
+              </p>
               {feature.checklist?.map((point, idx) => (
                 <div key={idx} className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-blue-600 mt-1" />
-                  <p className="text-sm font-medium text-gray-900">{point}</p>
+                  <p className="text-[16px] font-[400] leading-[24px] text-[#4B5563]">{point}</p>
                 </div>
               ))}
             </div>
@@ -29,7 +37,6 @@ export default function ExclusiveFeatures({ section }: { section: Section }) {
                 />
               )}
             </div>
-
           </div>
         ))}
       </div>

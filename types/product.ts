@@ -44,6 +44,7 @@ export interface SectionValue {
 
 export interface Section {
   type: string;
+  title: string;
   name: string;
   description: string;
   bg_color: string;
@@ -51,23 +52,44 @@ export interface Section {
   values: SectionValue[];
 }
 
+export interface SeoMeta {
+  content: string;
+  type: string;
+  value: string;
+}
+
+export interface SeoSchema {
+  meta_name: string;
+  meta_value: string;
+  type: string;
+}
+
+export interface SeoData {
+  defaultMeta: SeoMeta[];
+  description: string;
+  keywords: string[];
+  schema: SeoSchema[];
+  title: string;
+}
+
 export interface ProductData {
   slug: string;
   id: number;
   title: string;
-  description: string; // HTML content
+  description: string;
   platform: string;
   type: string;
   modality: string;
   media: Media[];
   checklist: ChecklistItem[];
-  seo: any[]; // empty or actual SEO object
+  seo: SeoData;
   cta_text: CtaText;
   sections: Section[];
   is_cohort_based_course: boolean;
   secondary_cta_group: any[];
   delivery_method: string;
 }
+
 
 export interface ApiResponse {
   code: number;

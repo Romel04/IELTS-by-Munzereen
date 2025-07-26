@@ -9,7 +9,6 @@ export async function fetchProduct(lang: "en" | "bn" = "en"): Promise<ApiRespons
         "X-TENMS-SOURCE-PLATFORM": "web",
         Accept: "application/json",
       },
-      cache: "no-store", // SSR
     }
   );
 
